@@ -1,0 +1,48 @@
+<% layout("./layout/boilerplate") %>
+    <div class="row">
+        <h1 class="text-center">New Campground</h1>
+        <div class="col-6 offset-3">
+            <form action="/campgrounds" method="post" novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title:</label>
+                    <input class="form-control" type="text" id="title" placeholder="Enter a valid title"
+                        name="campground[title]" required>
+                    <div class="valid-feedback">Looks fine!</div>
+
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location:</label>
+                    <input class="form-control" type="text" id="location" placeholder="Location"
+                        name="campground[location]" required>
+                    <div class="valid-feedback">Looks fine!</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price:</label>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input type="text" id="price" class="form-control" placeholder="0.00"
+                            name="campground[price] aria-label=" price" required>
+                        <div class="valid-feedback">Looks fine!</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image Url:</label>
+                    <input class="form-control" type="text" id="image" placeholder="image url" name="campground[image]"
+                        required>
+                    <div class="valid-feedback">Looks fine!</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description:</label>
+                    <textarea class="form-control" type="text" id="description" placeholder="description"
+                        name="campground[description]" required></textarea>
+                    <div class="valid-feedback">Looks fine!</div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-success mb-3">
+                        Add campground
+                    </button>
+                    <a class="btn btn-dark mb-3" href="/campgrounds">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
