@@ -1,3 +1,4 @@
+const campground = require('../models/campground');
 const Campground = require('../models/campground');
 const Export=module.exports;
 
@@ -12,7 +13,6 @@ Export.newForm=(req, res) => {
 
 Export.createCampground=async (req, res, next) => {
     // if(!req.body.campground) throw new ExpressError('Invalid Campground Data',400);
-    
     const camp = new Campground(req.body.campground);
     camp.images=req.files.map(f=>({
         url:f.path,
@@ -20,6 +20,7 @@ Export.createCampground=async (req, res, next) => {
     }));
     camp.author = req.user._id;
     await camp.save();
+    console.log(camp);
     req.flash('success', 'Successfully made a new campground!');
     res.redirect(`/campgrounds/${camp._id}`);
 }
