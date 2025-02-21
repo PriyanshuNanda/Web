@@ -21,7 +21,16 @@ const seedDB=async()=>{
             author:'677529da2c7f161010963d6d',
             location:`${cities[random1000].city},${cities[random1000].state}`,
             title:`${sample(descriptors)} ${sample(places)}`,
-            image: `https://picsum.photos/400?random=${Math.random()}`,
+            images:[
+                {
+                    url: 'https://res.cloudinary.com/dxv6heraw/image/upload/v1740142583/YelpCamp/oxhu6ukkizb28s7vbjot.avif',
+                    filename: 'YelpCamp/oxhu6ukkizb28s7vbjot',
+                  },
+                  {
+                    url: 'https://res.cloudinary.com/dxv6heraw/image/upload/v1740142594/YelpCamp/xqmqz0whw0t5jqiinyqm.avif',
+                    filename: 'YelpCamp/xqmqz0whw0t5jqiinyqm',
+                  }
+            ], 
             description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, cumque.',
             price:Math.floor(Math.random()*20)+10,
         });
