@@ -1,6 +1,9 @@
 <% layout('./layout/boilerplate') %>
   <link rel="stylesheet" href="/css/stars.css">
-
+  <script>
+  const maptilerApiKey = '<%= process.env.MAPTILER_API_KEY %>';
+  const campground = <%- JSON.stringify(campground) %>;
+  </script>
   <div class="row">
     <div class="col-6">
       <div id="campCarousel" class="carousel slide">
@@ -11,17 +14,17 @@
             </div>
             <% }) %>
         </div>
-        <% if (campground.images.length >1) { %>
-         
-        <button class="carousel-control-prev" type="button" data-bs-target="#campCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#campCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-        <% } %>
+        <% if (campground.images.length>1) { %>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#campCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#campCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <% } %>
       </div>
       <div class="card mb-3 text-center">
         <div class="card-body">
@@ -51,6 +54,7 @@
       </div>
     </div>
     <div class="col-6">
+      <div id="map" style="height: 10rem;" class="expanded mb-3"></div>
       <% if (currentUser) { %>
         <h2>Leave a review</h2>
         <form action="/campgrounds/<%=campground._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
@@ -107,3 +111,5 @@
             <% } %>
     </div>
   </div>
+
+  <script src="/js/show_page_map.js"></script>
